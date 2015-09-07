@@ -1,0 +1,5 @@
+4/9 terminadas las clases note, task y event. Implementado una factoría basica para ellas
+TODO: implementar metodos insertadores para la BBDD en driver.rb
+6/9 Terminados los metodos insertadores para driver, los metodos para crear Bullets
+a partir de arrays de driver y condensado ambos metodos en Manager.rb
+TODO: implementar en Manager metodos insertadores usando objetos bullet

@@ -1,0 +1,5 @@
+[Get that notes]
+select Notes.Desc from Notes, Bullets, Pages where Pages.NUM = 0 and Bullets.ID = Page_ID and Bullets.Herency_ID = Notes.ID;
+
+[Get last  id]
+select count(NUM) duplicates  from Pages;
