@@ -41,4 +41,22 @@ class Manager
     end
     return taks
   end
+
+  def insertNoteByPage( note , page )
+    if ! note.hasPage? then
+      return nil
+    end
+    if ! note.hasNoteId? then
+      note.noteID = @db.getLastID "Notes"
+    end
+    if ! note.hasBulletId? then
+      note.idBullet = @db.getLastID "Bullets"
+    end
+    if ! note.page.hasPageNumber? then
+      note.page.num = page
+    end
+    @db.insertPage( note.page.num , note.page.time )
+    @db.insertBullet( note.idBullet , note.noteID, note.page.num )
+    @db.insertNote( note.noteID , note.desc )
+  end
 end
