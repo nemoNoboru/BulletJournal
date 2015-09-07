@@ -59,4 +59,40 @@ class Manager
     @db.insertBullet( note.idBullet , note.noteID, note.page.num )
     @db.insertNote( note.noteID , note.desc )
   end
+
+  def insertEventByPage( event , page )
+    if ! event.hasPage? then
+      return nil
+    end
+    if ! event.hasEventId? then
+      event.eventID = @db.getLastID "Events"
+    end
+    if ! event.hasBulletId? then
+      event.idBullet = @db.getLastID "Bullets"
+    end
+    if ! event.page.hasPageNumber? then
+      event.page.num = page
+    end
+    @db.insertPage( event.page.num , event.page.time )
+    @db.insertBullet( event.idBullet , event.eventID, event.page.num )
+    @db.insertEvent( event.eventID , event.desc , event.fecha )
+  end
+
+  def insertTaskByPage( task , page )
+    if ! task.hasPage? then
+      return nil
+    end
+    if ! task.hasTaskId? then
+      task.taskID = @db.getLastID "Tasks"
+    end
+    if ! task.hasBulletId? then
+      task.idBullet = @db.getLastID "Bullets"
+    end
+    if ! event.page.hasPageNumber? then
+      task.page.num = page
+    end
+    @db.insertPage( task.page.num , task.page.time )
+    @db.insertBullet( task.idBullet , task.taskID, task.page.num )
+    @db.insertEvent( task.taskID , task.desc , task.fecha, task.status )
+  end
 end
