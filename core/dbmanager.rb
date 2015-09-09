@@ -80,4 +80,9 @@ class Manager
     @db.insertBullet( idBullet , taskID, page)
     @db.insertEvent( taskID , task.desc , task.fecha, task.status )
   end
+
+  def getIndex
+    return @db.getIndex
+  end
+
 end
