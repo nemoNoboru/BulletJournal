@@ -28,28 +28,25 @@ class Driver
 
   def getNotesByPage( page ) #refactor this
     query = "select Notes.ID, Notes.Desc
-             from Notes,Bullets,Pages
-             where Bullets.ID = Page_ID and
-             Bullets.Herency_ID = Notes.ID and
-             Pages.NUM = #{page}"
+    from Notes, Bullets
+    where Notes.ID = Bullets.Herency_ID
+    and Bullets.Page_ID = #{page}"
     executeQuery query
   end
 
   def getEventsByPage( page ) #refactor this
     query = "select Events.ID, Events.Desc , Events.Fecha
-             from Events,Bullets,Pages
-             where Bullets.ID = Page_ID and
-             Bullets.Herency_ID = Events.ID and
-             Pages.NUM = #{page}"
+    from Events, Bullets
+    where Events.ID = Bullets.Herency_ID
+    and Bullets.Page_ID = #{page}"
     executeQuery query
   end
 
   def getTasksByPage( page ) #refactor this
     query = "select Tasks.ID, Tasks.Desc,Tasks.Fecha , Tasks.Estado
-             from Tasks,Bullets,Pages
-             where Bullets.ID = Page_ID and
-             Bullets.Herency_ID = Tasks.ID and
-             Pages.NUM = #{page}"
+    from Tasks, Bullets
+    where Tasks.ID = Bullets.Herency_ID
+    and Bullets.Page_ID = #{page}"
     executeQuery query
   end
 
@@ -66,7 +63,7 @@ class Driver
   def insertPage( num, fecha )
     query = "insert into Pages values(?,?)"
     begin
-      @db.execute(query,[num,fecha])
+      @db.execute(query,[num.to_s,fecha.to_s])
       return true
     rescue Exception
       return false
