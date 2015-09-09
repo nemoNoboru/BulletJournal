@@ -3,16 +3,11 @@ class Bullet
 
   attr_accessor :page, :idBullet
 
-  def initialize (page , bulletid)
+  def initialize (page)
     @page = page
-    @idBullet = bulletid
   end
 
   def hasPage?
     return @page != nil
-  end
-
-  def hasBulletId?
-    return @idBullet != nil
   end
 end

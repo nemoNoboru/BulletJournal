@@ -3,16 +3,11 @@ require "./bullet.rb"
 class Task < Bullet
   attr_accessor :taskID, :desc, :status, :fecha
 
-  def initialize ( bulletID , page )
-    super( page , bulletID )
-    @taskID = nil
+  def initialize ( page )
+    super( page )
     @desc = nil
     @status = nil
     @fecha = nil
-  end
-
-  def hasTaskId?
-    return @taskID != nil
   end
 
   def hasDesc?

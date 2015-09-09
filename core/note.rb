@@ -3,14 +3,9 @@ require "./bullet.rb"
 class Note < Bullet
   attr_accessor :desc, :noteID
 
-  def initialize( bulletID , page )
-    super(page, bulletID )
-    @noteID = nil
+  def initialize( page )
+    super(page)
     @desc = nil
-  end
-
-  def hasNoteId?
-    return @noteID != nil
   end
 
   def hasDesc?

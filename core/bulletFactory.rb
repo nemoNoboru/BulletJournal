@@ -7,37 +7,34 @@ require "./task.rb"
 class BulletFactory
   def self.makeEmptyEvent
     page = Page.new
-    return Event.new(nil, page)
+    return Event.new(page)
   end
 
   def self.makeEmptyNote
     page = Page.new
-    return Note.new(nil, page)
+    return Note.new(page)
   end
 
   def self.makeEmptyTask
     page = Page.new
-    return Task.new(nil , page)
+    return Task.new(page)
   end
 
   def self.makeNoteByRaw( array )
-    note = Note.new(nil,nil)
-    note.noteID = array[0]
+    note = Note.new(nil)
     note.desc = array[1]
     return note
   end
 
   def self.makeEventByRaw( array )
-    event = Event.new(nil,nil)
-    event.eventID = array[0]
+    event = Event.new(nil)
     event.desc = array[1]
     event.fecha = array[2]
     return event
   end
 
   def self.makeTaskByRaw( array )
-    task = Task.new(nil,nil)
-    task.taskID = array[0]
+    task = Task.new(nil)
     task.desc = array[1]
     task.fecha = array[2]
     task.status = array[3]

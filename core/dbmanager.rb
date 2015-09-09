@@ -46,53 +46,38 @@ class Manager
     if ! note.hasPage? then
       return nil
     end
-    if ! note.hasNoteId? then
-      note.noteID = @db.getLastID "Notes"
-    end
-    if ! note.hasBulletId? then
-      note.idBullet = @db.getLastID "Bullets"
-    end
-    if ! note.page.hasPageNumber? then
-      note.page.num = page
-    end
-    @db.insertPage( note.page.num , note.page.time )
-    @db.insertBullet( note.idBullet , note.noteID, note.page.num )
-    @db.insertNote( note.noteID , note.desc )
+
+    noteID = @db.getLastID "Notes"
+    idBullet = @db.getLastID "Bullets"
+
+    @db.insertPage( page , note.page.time )
+    @db.insertBullet( idBullet , noteID, page)
+    @db.insertNote( noteID , note.desc )
   end
 
   def insertEventByPage( event , page )
     if ! event.hasPage? then
       return nil
     end
-    if ! event.hasEventId? then
-      event.eventID = @db.getLastID "Events"
-    end
-    if ! event.hasBulletId? then
-      event.idBullet = @db.getLastID "Bullets"
-    end
-    if ! event.page.hasPageNumber? then
-      event.page.num = page
-    end
-    @db.insertPage( event.page.num , event.page.time )
-    @db.insertBullet( event.idBullet , event.eventID, event.page.num )
-    @db.insertEvent( event.eventID , event.desc , event.fecha )
+
+    eventID = @db.getLastID "Events"
+    idBullet = @db.getLastID "Bullets"
+
+    @db.insertPage( page , event.page.time )
+    @db.insertBullet( idBullet , eventID, page)
+    @db.insertEvent( eventID , event.desc , event.fecha )
   end
 
   def insertTaskByPage( task , page )
     if ! task.hasPage? then
       return nil
     end
-    if ! task.hasTaskId? then
-      task.taskID = @db.getLastID "Tasks"
-    end
-    if ! task.hasBulletId? then
-      task.idBullet = @db.getLastID "Bullets"
-    end
-    if ! event.page.hasPageNumber? then
-      task.page.num = page
-    end
-    @db.insertPage( task.page.num , task.page.time )
-    @db.insertBullet( task.idBullet , task.taskID, task.page.num )
-    @db.insertEvent( task.taskID , task.desc , task.fecha, task.status )
+
+    taskID = @db.getLastID "Tasks"
+    idBullet = @db.getLastID "Bullets"
+
+    @db.insertPage( page , task.page.time )
+    @db.insertBullet( idBullet , taskID, page)
+    @db.insertEvent( taskID , task.desc , task.fecha, task.status )
   end
 end

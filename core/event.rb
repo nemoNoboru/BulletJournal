@@ -3,15 +3,10 @@ require "./bullet.rb"
 class Event < Bullet
   attr_accessor :fecha , :desc, :eventID
 
-  def initialize (bulletID , page )
-    super( page, bulletID )
-    @eventID = nil
+  def initialize ( page )
+    super( page )
     @desc = nil
     @fecha = nil
-  end
-
-  def hasEventId?
-    return @eventID != nil
   end
 
   def hasDesc?
