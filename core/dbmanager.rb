@@ -84,4 +84,8 @@ class Manager
   def getLastPage
     @db.getLastPage
   end
+
+  def getIndex
+    return @db.getIndex
+  end
 end

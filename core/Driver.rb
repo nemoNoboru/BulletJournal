@@ -55,6 +55,13 @@ class Driver
     executeQuery query
   end
 
+  def getIndex
+    query = " select Page_ID , count(Herency_ID)
+    from Bullets
+    group by Page_ID;"
+    executeQuery query
+  end
+
   def insertBullet( id, herency_id, page_id )
     query = "insert into Bullets values (?,?,?)"
     begin
