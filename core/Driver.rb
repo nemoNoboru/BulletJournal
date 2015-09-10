@@ -17,6 +17,11 @@ class Driver
     end
   end
 
+  def getLastPage
+    query = "select max(NUM) from Pages"
+    (executeQuery query)[0][0]
+  end
+
   def getLastID ( table )
     query = "select count(ID) duplicates from "
     if table == "Pages"
