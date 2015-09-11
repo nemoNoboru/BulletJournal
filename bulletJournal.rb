@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'tilt/erb'
 require './core/dbmanager.rb'
 
 manager = Manager.new
