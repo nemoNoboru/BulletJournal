@@ -1,4 +1,4 @@
-require "./page.rb"
+require "./core/page.rb"
 class Bullet
 
   attr_accessor :page, :idBullet

@@ -1,5 +1,5 @@
 require 'sinatra'
-require 'core/dbmanager.rb'
+require './core/dbmanager.rb'
 
 manager = Manager.new
 

@@ -1,4 +1,4 @@
-require "./bullet.rb"
+require "./core/bullet.rb"
 
 class Event < Bullet
   attr_accessor :fecha , :desc, :eventID

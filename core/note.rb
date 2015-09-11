@@ -1,4 +1,4 @@
-require "./bullet.rb"
+require "./core/bullet.rb"
 
 class Note < Bullet
   attr_accessor :desc, :noteID

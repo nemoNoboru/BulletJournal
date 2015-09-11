@@ -1,4 +1,4 @@
-require "./bullet.rb"
+require "./core/bullet.rb"
 
 class Task < Bullet
   attr_accessor :taskID, :desc, :status, :fecha

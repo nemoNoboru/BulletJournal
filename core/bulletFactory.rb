@@ -1,8 +1,8 @@
-require "./bullet.rb"
-require "./event.rb"
-require "./note.rb"
-require "./page.rb"
-require "./task.rb"
+require "./core/bullet.rb"
+require "./core/event.rb"
+require "./core/note.rb"
+require "./core/page.rb"
+require "./core/task.rb"
 
 class BulletFactory
   def self.makeEmptyEvent

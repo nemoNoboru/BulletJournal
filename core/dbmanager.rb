@@ -1,5 +1,5 @@
-require "./bulletFactory.rb"
-require "./Driver.rb"
+require "./core/bulletFactory.rb"
+require "./core/Driver.rb"
 
 class Manager
   def initialize

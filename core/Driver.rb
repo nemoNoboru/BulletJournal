@@ -5,7 +5,7 @@ require "sqlite3"
 
 class Driver
   def initialize
-    @db = SQLite3::Database.new "journal.db"
+    @db = SQLite3::Database.new "core/journal.db"
   end
 
   def executeQuery( query )
